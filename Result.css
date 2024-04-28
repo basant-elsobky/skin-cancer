@@ -1,0 +1,142 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f6fc;
+  color: #1c4e7c;
+}
+
+.container {
+  width: 90%;
+
+}
+
+.navbar {
+  background-color: #1c4e7ce8;
+
+
+}
+
+.navbar .container .navbar-brand img {
+  width: auto;
+  /* Allow the image to adjust its width flexibly */
+  height: auto;
+  /* Maintain aspect ratio */
+  margin: 0 auto;
+  text-align: center;
+  max-width: 25rem;
+  /* Set the maximum width */
+
+}
+
+.main-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.navbar .navbar-brand img {
+  width: 200px;
+  /* Adjust as needed */
+}
+
+.hero {
+  text-align: center;
+  padding: 5% 0;
+  /* Adjust padding for flexibility */
+}
+
+.hero h1 {
+  font-size: 2rem;
+  /* Adjust font size for flexibility */
+  margin-bottom: 20px;
+}
+
+.upload-section {
+  margin-bottom: 150px;
+  /* Adjust padding for smaller screens */
+}
+
+.file-select {
+  margin-bottom: 100px;
+  transform: translate(40%, 50%);
+  left: 50%;
+  align-items: center;
+}
+
+
+.backbtn {
+  background-color: #1c4e7c;
+  color: #fff;
+  padding: 10px 20px;
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  border: none;
+  cursor: pointer;
+  border-radius: 25px;
+  transition: background-color 0.3s;
+
+}
+
+.tips-section {
+  background-color: #fff;
+  padding:30px 0;
+  /* Adjust padding for smaller screens */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tips-section h2 {
+  text-align: center;
+}
+
+.backbtn {
+  margin-top: 30px;
+
+}
+
+.cancer-box {
+ 
+  max-width: 700px;
+  min-height: 200px;
+  /* Limit box width for larger screens */
+  background-color: #f0f0f0;
+  border: 5px solid #ccc;
+  padding: 20px;
+  box-sizing: border-box;
+  padding-bottom: 70px;
+}
+
+.cancer-box h2 {
+  font-size: 1.5em;
+  /* Set the font size for the heading */
+  /* margin-bottom: 10px !important; */
+  /* Add some space below the heading */
+}
+
+.cancer-box p {
+  font-size: 1em;
+  /* Set the font size for the description */
+  /* line-height: 1.4; */
+  /* Set the line height for better readability */
+}
+
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .hero h1 {
+    font-size: 1.5rem;
+    /* Adjust font size for smaller screens */
+  }
+
+  .navbar .navbar-brand img {
+    width: 150px;
+    /* Adjust as needed */
+  }
+}

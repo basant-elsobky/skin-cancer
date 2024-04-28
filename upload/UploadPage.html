@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload</title>
+  <link rel="stylesheet" href="UploadPagecss.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+
+    <div class="container">
+      <a class="navbar-brand" href="../index.html"><img src="img/Group2.png"></a>
+      
+      <!-- <div class="collapse navbar-collapse" id="main">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            
+          </ul>
+        </div> -->
+    </div>
+  </nav>
+
+
+  <!-- Home Section -->
+  <div class="home d-flex justify-content-center align-items-center">
+    <div class="second-home d-flex justify-content-center align-items-center">
+      <div class="inside-home text-center text-light">
+      </div>
+    </div>
+  </div>
+
+
+  <p>
+    *Note that the scan result is not a diagnosis.To obtain an accurate diagnosis and a recommendation for treatment -
+    consult your doctor.
+  </p>
+
+  <div class="whitecard">
+    <div id="slider">
+      <input type="radio" name="slider" id="slide1" checked>
+      <input type="radio" name="slider" id="slide2">
+      <input type="radio" name="slider" id="slide3">
+      <div id="slides">
+        <div id="overflow">
+          <div class="inner">
+            <div class="slide slide_1">
+              <div class="slide-content">
+                <h2>Slide 1</h2>
+                <img src="img/1.png" alt="Image for slide 1">
+              </div>
+            </div>
+            <div class="slide slide_2">
+              <div class="slide-content">
+                
+                <img src="img/2.png" alt="Image for slide 2">
+              </div>
+            </div>
+            <div class="slide slide_3">
+              <div class="slide-content">
+               
+                <img src="img/3.png" alt="Image for slide 3">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="controls">
+        <label for="slide1"></label>
+        <label for="slide2"></label>
+        <label for="slide3"></label>
+      </div>
+      <div id="bullets">
+        <label for="slide1"></label>
+        <label for="slide2"></label>
+        <label for="slide3"></label>
+      </div>
+      <br>
+      <form action="/Predict" method="post" enctype="multipart/form-data">
+        <div class="file-upload">
+          <div class="file-select">
+            <div class="file-select-button" id="fileName">Choose a photo</div>
+            <div class="file-select-name" id="noFile">No file chosen...</div>
+            <input type="file" name="chooseFile" id="chooseFile">
+          </div>
+        </div>
+        <br>
+        <button class="upload-button" type="submit" name="submit">Upload</button>
+      </form>
+      <a href="../index.html"><button class="backbtn">Back </button></a>
+
+    </div>
+  </div>
+  <script>
+    const slides = document.querySelectorAll(".slide");
+    const uploadButton = document.querySelector(".upload-button");
+    const activeColor = "rgb(42, 53, 116)";
+
+    let allSlidesViewed = false;
+
+    // Click event listener for each slide
+    slides.forEach((slide) => {
+      slide.addEventListener("click", () => {
+        slide.classList.add("viewed");
+        allSlidesViewed = slides.every((slide) => slide.classList.contains("viewed"));
+
+        if (allSlidesViewed) {
+          uploadButton.style.backgroundColor = activeColor;
+          uploadButton.classList.remove("disabled");
+          uploadButton.classList.add("active"); // Use "active" class instead of "enabled" for consistency with existing CSS
+        } else {
+          uploadButton.style.backgroundColor = "";
+          uploadButton.classList.add("disabled");
+          uploadButton.classList.remove("active");
+        }
+      });
+    });
+
+    // Change event listener for radio buttons
+    const radioButtons = document.querySelectorAll("input[type='radio']");
+    radioButtons.forEach((radioButton) => {
+      radioButton.addEventListener("change", () => {
+        const currentSlide = document.querySelector(`#${radioButton.id}`);
+        allSlidesViewed = (currentSlide === document.querySelector("#slide3")); // Update based on your actual number of slides
+
+        updateButtonState(allSlidesViewed); // Helper function to handle button state based on viewed status
+      });
+    });
+
+    function updateButtonState(allViewed) {
+      if (allViewed) {
+        uploadButton.style.backgroundColor = activeColor;
+        uploadButton.classList.remove("disabled");
+        uploadButton.classList.add("active");
+      } else {
+        uploadButton.style.backgroundColor = "";
+        uploadButton.classList.add("disabled");
+        uploadButton.classList.remove("active");
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>
